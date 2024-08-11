@@ -466,3 +466,14 @@ FodyWeavers.xsd
 /BackgroundTasks/obj/Debug/net7.0/BackgroundTasks.AssemblyInfo.cs
 /BackgroundTasks/obj/Debug/net7.0/BackgroundTasks.AssemblyInfoInputs.cache
 /Domain/obj/Debug/net7.0/Domain.AssemblyInfo.cs
+/Application/obj/Debug/net7.0/Application.AssemblyInfo.cs
+/Infrastructure/obj/Debug/net7.0/Infrastructure.AssemblyInfo.cs
+/Persistence/obj/Debug/net7.0/Persistence.csproj.FileListAbsolute.txt
+/Persistence/obj/Debug/net7.0/Persistence.csproj.CoreCompileInputs.cache
+/Persistence/obj/Debug/net7.0/Persistence.AssemblyInfoInputs.cache
+/Persistence/obj/Debug/net7.0/Persistence.AssemblyInfo.cs
+/Notifications/obj/Debug/net7.0/Notifications.csproj.FileListAbsolute.txt
+/Notifications/obj/Debug/net7.0/Notifications.csproj.AssemblyReference.cache
+/Notifications/obj/Debug/net7.0/Notifications.AssemblyInfoInputs.cache
+/Notifications/obj/Debug/net7.0/Notifications.AssemblyInfo.cs
+/Notifications/bin/Debug/net7.0/Notifications.deps.json
