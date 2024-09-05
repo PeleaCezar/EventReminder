@@ -9,7 +9,7 @@ internal sealed class UserIdentifierProvider : IUserIdentifierProvider
 	public UserIdentifierProvider(IHttpContextAccessor httpContextAccessor)
 	{
         string userIdClaim = httpContextAccessor.HttpContext?.User?.FindFirstValue("userId")
-                        ?? throw new ArgumentException("The user identifier claim is required.", nameof(httpContextAccessor));
+               ?? throw new ArgumentException("The user identifier claim is required.", nameof(httpContextAccessor));
 
         UserId = new Guid(userIdClaim);
     }
