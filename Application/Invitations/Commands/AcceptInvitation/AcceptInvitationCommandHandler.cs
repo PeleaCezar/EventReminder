@@ -17,20 +17,17 @@ internal sealed class AcceptInvitationCommandHandler : ICommandHandler<AcceptInv
     private readonly IInvitationRepository _invitationRepository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IDateTime _dateTime;
-    private readonly IMediator _mediator;
 
     public AcceptInvitationCommandHandler(
         IUserIdentifierProvider userIdentifierProvider,
         IInvitationRepository invitationRepository,
         IUnitOfWork unitOfWork,
-        IDateTime dateTime,
-        IMediator mediator)
+        IDateTime dateTime)
     {
         _userIdentifierProvider = userIdentifierProvider;
         _invitationRepository = invitationRepository;
         _unitOfWork = unitOfWork;
         _dateTime = dateTime;
-        _mediator = mediator;
     }
 
     public async Task<Result> Handle(AcceptInvitationCommand request, CancellationToken cancellationToken)
