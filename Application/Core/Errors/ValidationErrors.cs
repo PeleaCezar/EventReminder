@@ -4,6 +4,9 @@ namespace Application.Core.Errors;
 
 internal static class ValidationErrors
 {
+    /// <summary>
+    /// Contains the login errors.
+    /// </summary>
     internal static class Login
     {
         internal static Error EmailIsRequired => new Error("Login.EmailIsRequired", "The email is required.");
@@ -11,6 +14,9 @@ internal static class ValidationErrors
         internal static Error PasswordIsRequired => new Error("Login.PasswordIsRequired", "The password is required.");
     }
 
+    /// <summary>
+    /// Contains the reject friendship request errors.
+    /// </summary>
     internal static class RejectFriendshipRequest
     {
         internal static Error FriendshipRequestIdIsRequired => new Error(
@@ -18,6 +24,9 @@ internal static class ValidationErrors
             "The invitation identifier is required.");
     }
 
+    /// <summary>
+    /// Contains the create user errors.
+    /// </summary>
     internal static class CreateUser
     {
         internal static Error FirstNameIsRequired => new Error("CreateUser.FirstNameIsRequired", "The first name is required.");
@@ -87,6 +96,29 @@ internal static class ValidationErrors
             "The friend identifier is required.");
     }
 
+    /// <summary>
+    /// Contains the accept invitation errors.
+    /// </summary>
+    internal static class AcceptInvitation
+    {
+        internal static Error InvitationIdIsRequired => new Error(
+            "AcceptInvitation.InvitationIdIsRequired",
+            "The invitation identifier is required.");
+    }
+
+    /// <summary>
+    /// Contains the reject invitation errors.
+    /// </summary>
+    internal static class RejectInvitation
+    {
+        internal static Error InvitationIdIsRequired => new Error(
+            "RejectInvitation.InvitationIdIsRequired",
+            "The invitation identifier is required.");
+    }
+
+    /// <summary>
+    /// Contains the accept friendship request errors.
+    /// </summary>
     internal static class AcceptFriendshipRequest
     {
         internal static Error FriendshipRequestIdIsRequired => new Error(

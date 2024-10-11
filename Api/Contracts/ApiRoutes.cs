@@ -70,4 +70,20 @@ public static class ApiRoutes
 
         public const string InviteFriend = "group-events/{groupEventId:guid}/invite";
     }
+
+    /// <summary>
+    /// Contains the group invitations routes.
+    /// </summary>
+    public static class Invitations
+    {
+        public const string GetById = "invitations/{invitationId:guid}";
+
+        public const string GetPending = "invitations/pending";
+
+        public const string GetSent = "invitations/sent";
+
+        public const string Accept = "invitations/{invitationId:guid}/accept";
+
+        public const string Reject = "invitations/{invitationId:guid}/reject";
+    }
 }
