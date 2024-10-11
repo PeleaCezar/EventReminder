@@ -29,6 +29,64 @@ internal static class ValidationErrors
         internal static Error PasswordIsRequired => new Error("CreateUser.PasswordIsRequired", "The password is required.");
     }
 
+    /// <summary>
+    /// Contains the create group event errors.
+    /// </summary>
+    internal static class CreateGroupEvent
+    {
+        internal static Error UserIdIsRequired => new Error("CreateGroupEvent.UserIdIsRequired", "The user identifier is required.");
+
+        internal static Error NameIsRequired => new Error("CreateGroupEvent.NameIsRequired", "The event name is required.");
+
+        internal static Error CategoryIdIsRequired => new Error(
+            "CreateGroupEvent.CategoryIdIsRequired",
+            "The category identifier is required.");
+
+        internal static Error DateAndTimeIsRequired => new Error(
+            "CreateGroupEvent.DateAndTimeIsRequired",
+            "The date and time of the event is required.");
+    }
+
+    /// <summary>
+    /// Contains the update group event errors.
+    /// </summary>
+    internal static class UpdateGroupEvent
+    {
+        internal static Error GroupEventIdIsRequired => new Error(
+            "UpdateGroupEvent.GroupEventIdIsRequired",
+            "The group event identifier is required.");
+
+        internal static Error NameIsRequired => new Error("UpdateGroupEvent.NameIsRequired", "The event name is required.");
+
+        internal static Error DateAndTimeIsRequired => new Error(
+            "UpdateGroupEvent.DateAndTimeIsRequired",
+            "The date and time of the event is required.");
+    }
+
+    /// <summary>
+    /// Contains the cancel group event errors.
+    /// </summary>
+    internal static class CancelGroupEvent
+    {
+        internal static Error GroupEventIdIsRequired => new Error(
+            "CancelGroupEvent.GroupEventIdIsRequired",
+            "The group event identifier is required.");
+    }
+
+    /// <summary>
+    /// Contains the invite friend to group event errors.
+    /// </summary>
+    internal static class InviteFriendToGroupEvent
+    {
+        internal static Error GroupEventIdIsRequired => new Error(
+            "InviteFriendToGroupEvent.GroupEventIdIsRequired",
+            "The group event identifier is required.");
+
+        internal static Error FriendIdIsRequired => new Error(
+            "InviteFriendToGroupEvent.FriendIdIsRequired",
+            "The friend identifier is required.");
+    }
+
     internal static class AcceptFriendshipRequest
     {
         internal static Error FriendshipRequestIdIsRequired => new Error(
