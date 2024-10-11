@@ -62,5 +62,12 @@ public static class ApiRoutes
 
         public const string GetMostRecentAttending = "group-events/most-recent-attending";
 
+        public const string Create = "group-events";
+
+        public const string Update = "group-events/{groupEventId:guid}";
+
+        public const string Cancel = "group-events/{groupEventId:guid}";
+
+        public const string InviteFriend = "group-events/{groupEventId:guid}/invite";
     }
 }
