@@ -1,11 +1,10 @@
 ﻿using Domain.Core.Errors;
 using Domain.Core.Primitives.Result;
-using Domain.Entities;
 using Domain.Enumerations;
 using Domain.Events;
 using Domain.ValueObjects;
 
-namespace Domain.Core.Entities;
+namespace Domain.Entities;
 
 /// <summary>
 /// Represents a personal event.

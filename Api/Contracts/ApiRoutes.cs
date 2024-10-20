@@ -86,4 +86,20 @@ public static class ApiRoutes
 
         public const string Reject = "invitations/{invitationId:guid}/reject";
     }
+
+    /// <summary>
+    /// Contains the personal events routes.
+    /// </summary>
+    public static class PersonalEvents
+    {
+        public const string Get = "personal-events";
+
+        public const string GetById = "personal-events/{personalEventId:guid}";
+
+        public const string Create = "personal-events";
+
+        public const string Update = "personal-events/{personalEventId:guid}";
+
+        public const string Cancel = "personal-events/{personalEventId:guid}";
+    }
 }

@@ -117,6 +117,52 @@ internal static class ValidationErrors
     }
 
     /// <summary>
+    /// Contains the create personal event errors.
+    /// </summary>
+    internal static class CreatePersonalEvent
+    {
+        internal static Error UserIdIsRequired => new Error(
+            "CreatePersonalEvent.UserIdIsRequired",
+            "The user identifier is required.");
+
+        internal static Error NameIsRequired => new Error("CreatePersonalEvent.NameIsRequired", "The event name is required.");
+
+        internal static Error CategoryIdIsRequired => new Error(
+            "CreatePersonalEvent.CategoryIdIsRequired",
+            "The category identifier is required.");
+
+        internal static Error DateAndTimeIsRequired => new Error(
+            "CreatePersonalEvent.DateAndTimeIsRequired",
+            "The date and time of the event is required.");
+    }
+
+    /// <summary>
+    /// Contains the update personal event errors.
+    /// </summary>
+    internal static class UpdatePersonalEvent
+    {
+        internal static Error GroupEventIdIsRequired => new Error(
+            "UpdatePersonalEvent.GroupEventIdIsRequired",
+            "The group event identifier is required.");
+
+        internal static Error NameIsRequired => new Error("UpdatePersonalEvent.NameIsRequired", "The event name is required.");
+
+        internal static Error DateAndTimeIsRequired => new Error(
+            "UpdatePersonalEvent.DateAndTimeIsRequired",
+            "The date and time of the event is required.");
+    }
+
+    /// <summary>
+    /// Contains the cancel personal event errors.
+    /// </summary>
+    internal static class CancelPersonalEvent
+    {
+        internal static Error PersonalEventIdIsRequired => new Error(
+            "CancelPersonalEvent.GroupEventIdIsRequired",
+            "The group event identifier is required.");
+    }
+
+    /// <summary>
     /// Contains the accept friendship request errors.
     /// </summary>
     internal static class AcceptFriendshipRequest

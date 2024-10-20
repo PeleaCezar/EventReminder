@@ -1,5 +1,5 @@
-﻿using Domain.Core.Entities;
-using Domain.Core.Primitives.Maybe;
+﻿using Domain.Core.Primitives.Maybe;
+using Domain.Entities;
 
 namespace Domain.Repositories;
 
