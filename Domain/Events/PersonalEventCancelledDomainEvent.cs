@@ -1,5 +1,5 @@
-﻿using Domain.Core.Entities;
-using Domain.Core.Events;
+﻿using Domain.Core.Events;
+using Domain.Entities;
 
 namespace Domain.Events
 {

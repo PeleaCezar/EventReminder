@@ -3,6 +3,7 @@ using Domain.Core.Errors;
 using Domain.Core.Primitives;
 using Domain.Core.Primitives.Result;
 using Domain.Core.Utility;
+using Domain.Enumerations;
 using Domain.Events;
 using Domain.Repositories;
 using Domain.Services;
@@ -108,6 +109,21 @@ namespace Domain.Entities
             return friendshipRequest;
         }
 
+        /// <summary>
+        /// Creates a new personal event.
+        /// </summary>
+        /// <param name="name">The event name.</param>
+        /// <param name="category">The event category.</param>
+        /// <param name="dateTimeUtc">The date and time of the event.</param>
+        /// <returns>The newly created personal event.</returns>
+        public PersonalEvent CreatePersonalEvent(Name name, Category category, DateTime dateTimeUtc)
+        {
+            var personalEvent = new PersonalEvent(this, name, category, dateTimeUtc);
+
+            AddDomainEvent(new PersonalEventCreatedDomainEvent(personalEvent));
+
+            return personalEvent;
+        }
 
         /// <summary>
         /// Verifies that the provided password hash matches the password hash.
