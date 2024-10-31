@@ -102,4 +102,19 @@ public static class ApiRoutes
 
         public const string Cancel = "personal-events/{personalEventId:guid}";
     }
+
+
+    /// <summary>
+    /// Contains the users routes.
+    /// </summary>
+    public static class Users
+    {
+        public const string GetById = "users/{userId:guid}";
+
+        public const string Update = "users/{userId:guid}";
+
+        public const string ChangePassword = "users/{userId:guid}/change-passwrod";
+
+        public const string SendFriendshipRequest = "users/{userId:guid}/send-friendship-request";
+    }
 }

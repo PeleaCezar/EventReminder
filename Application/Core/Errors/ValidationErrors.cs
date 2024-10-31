@@ -2,6 +2,9 @@
 
 namespace Application.Core.Errors;
 
+/// <summary>
+/// Contains the validation errors.
+/// </summary>
 internal static class ValidationErrors
 {
     /// <summary>
@@ -25,17 +28,27 @@ internal static class ValidationErrors
     }
 
     /// <summary>
-    /// Contains the create user errors.
+    /// Contains the accept friendship request errors.
     /// </summary>
-    internal static class CreateUser
+    internal static class AcceptFriendshipRequest
     {
-        internal static Error FirstNameIsRequired => new Error("CreateUser.FirstNameIsRequired", "The first name is required.");
+        internal static Error FriendshipRequestIdIsRequired => new Error(
+            "AcceptFriendshipRequest.FriendshipRequestIdIsRequired",
+            "The invitation identifier is required.");
+    }
 
-        internal static Error LastNameIsRequired => new Error("CreateUser.LastNameIsRequired", "The last name is required.");
+    /// <summary>
+    /// Contains the send remove friendship errors.
+    /// </summary>
+    internal static class RemoveFriendship
+    {
+        internal static Error UserIdIsRequired => new Error(
+            "RemoveFriendship.UserIdIsRequired",
+            "The user identifier is required.");
 
-        internal static Error EmailIsRequired => new Error("CreateUser.EmailIsRequired", "The email is required.");
-
-        internal static Error PasswordIsRequired => new Error("CreateUser.PasswordIsRequired", "The password is required.");
+        internal static Error FriendIdIsRequired => new Error(
+            "RemoveFriendship.FriendIdIsRequired",
+            "The friend identifier is required.");
     }
 
     /// <summary>
@@ -163,12 +176,52 @@ internal static class ValidationErrors
     }
 
     /// <summary>
-    /// Contains the accept friendship request errors.
+    /// Contains the change password errors.
     /// </summary>
-    internal static class AcceptFriendshipRequest
+    internal static class ChangePassword
     {
-        internal static Error FriendshipRequestIdIsRequired => new Error(
-            "AcceptFriendshipRequest.FriendshipRequestIdIsRequired",
-            "The invitation identifier is required.");
+        internal static Error UserIdIsRequired => new Error("ChangePassword.UserIdIsRequired", "The user identifier is required.");
+
+        internal static Error PasswordIsRequired => new Error("ChangePassword.PasswordIsRequired", "The password is required.");
+    }
+
+    /// <summary>
+    /// Contains the create user errors.
+    /// </summary>
+    internal static class CreateUser
+    {
+        internal static Error FirstNameIsRequired => new Error("CreateUser.FirstNameIsRequired", "The first name is required.");
+
+        internal static Error LastNameIsRequired => new Error("CreateUser.LastNameIsRequired", "The last name is required.");
+
+        internal static Error EmailIsRequired => new Error("CreateUser.EmailIsRequired", "The email is required.");
+
+        internal static Error PasswordIsRequired => new Error("CreateUser.PasswordIsRequired", "The password is required.");
+    }
+
+    /// <summary>
+    /// Contains the send friendship request errors.
+    /// </summary>
+    internal static class SendFriendshipRequest
+    {
+        internal static Error UserIdIsRequired => new Error(
+            "SendFriendshipRequest.UserIdIsRequired",
+            "The user identifier is required.");
+
+        internal static Error FriendIdIsRequired => new Error(
+            "SendFriendshipRequest.FriendIdIsRequired",
+            "The friend identifier is required.");
+    }
+
+    /// <summary>
+    /// Contains the update user errors.
+    /// </summary>
+    internal static class UpdateUser
+    {
+        internal static Error UserIdIsRequired => new Error("UpdateUser.UserIdIsRequired", "The user identifier is required.");
+
+        internal static Error FirstNameIsRequired => new Error("UpdateUser.FirstNameIsRequired", "The first name is required.");
+
+        internal static Error LastNameIsRequired => new Error("UpdateUser.LastNameIsRequired", "The last name is required.");
     }
 }
