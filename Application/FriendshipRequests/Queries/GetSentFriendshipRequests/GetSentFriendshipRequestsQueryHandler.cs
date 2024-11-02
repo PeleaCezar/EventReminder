@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.FriendshipRequests.Queries.GetSentFriendshipRequests;
 
-internal class GetSentFriendshipRequestsQueryHandler
+internal sealed class GetSentFriendshipRequestsQueryHandler
     : IQueryHandler<GetSentFriendshipRequestsQuery, Maybe<SentFriendshipRequestsListResponse>>
 {
     private readonly IUserIdentifierProvider _userIdentifierProvider;

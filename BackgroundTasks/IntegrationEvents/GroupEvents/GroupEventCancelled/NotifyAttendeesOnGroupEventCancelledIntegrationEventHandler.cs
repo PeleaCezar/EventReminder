@@ -14,7 +14,7 @@ namespace BackgroundTasks.IntegrationEvents.GroupEvents.GroupEventCancelled;
 /// <summary>
 /// Represents the <see cref="GroupEventCancelledIntegrationEvent"/> class.
 /// </summary>
-internal class NotifyAttendeesOnGroupEventCancelledIntegrationEventHandler :
+internal sealed class NotifyAttendeesOnGroupEventCancelledIntegrationEventHandler :
     IIntegrationEventHandler<GroupEventCancelledIntegrationEvent>
 {
     private readonly IGroupEventRepository _groupEventRepository;
