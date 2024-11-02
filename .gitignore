@@ -505,3 +505,8 @@ FodyWeavers.xsd
 /Persistence/obj/Persistence.csproj.nuget.dgspec.json
 /Persistence/obj/project.assets.json
 /Persistence/obj/project.nuget.cache
+/Api/bin/Debug/net7.0/appsettings.json
+/Api/bin/Debug/net7.0/appsettings.Development.json
+/Api/obj/Debug/net7.0/Api.MvcApplicationPartsAssemblyInfo.cs
+/Api/obj/Api.csproj.nuget.g.props
+/Api/obj/Api.csproj.nuget.g.targets

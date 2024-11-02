@@ -21,7 +21,7 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
             firstNameBuilder.Property(firstName => firstName.Value)
                 .HasColumnName(nameof(User.FirstName))
                 .HasMaxLength(FirstName.MaxLength)
-                .IsRequired(true);
+                .IsRequired();
         });
 
         builder.OwnsOne(user => user.LastName, lastNameBuilder =>
@@ -31,7 +31,7 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
             lastNameBuilder.Property(lastName => lastName.Value)
                 .HasColumnName(nameof(User.LastName))
                 .HasMaxLength(LastName.MaxLength)
-                .IsRequired(true);
+                .IsRequired();
         });
 
         builder.OwnsOne(user => user.Email, emailBuilder =>
@@ -41,7 +41,7 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
             emailBuilder.Property(email => email.Value)
                 .HasColumnName(nameof(User.Email))
                 .HasMaxLength(Email.MaxLength)
-                .IsRequired(true);
+                .IsRequired();
         });
 
         builder.Property<string>("_passwordHash")
