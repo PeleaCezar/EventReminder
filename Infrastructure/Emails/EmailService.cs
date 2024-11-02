@@ -9,14 +9,22 @@ using MimeKit.Text;
 
 namespace Infrastructure.Emails
 {
+    /// <summary>
+    /// Represents the email service.
+    /// </summary>
     internal sealed class EmailService : IEmailService
     {
         private readonly MailSettings _mailSettings;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EmailService"/> class.
+        /// </summary>
+        /// <param name="maiLSettingsOptions">The mail settings options.</param>
         public EmailService(IOptions<MailSettings> mailSettingsOptions)
         {
             _mailSettings = mailSettingsOptions.Value;
         }
+
         public async Task SendEmailAsync(MailRequest mailRequest)
         {
             var email = new MimeMessage

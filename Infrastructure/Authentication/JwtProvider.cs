@@ -10,14 +10,22 @@ using System.Text;
 
 namespace Infrastructure.Authentication;
 
-public class JwtProvider : IJwtProvider
+/// <summary>
+/// Represents the JWT provider.
+/// </summary>
+internal sealed class JwtProvider : IJwtProvider
 {
     private readonly JwtSettings _jwtSettings;
     private readonly IDateTime _dateTime;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="JwtProvider"/> class.
+    /// </summary>
+    /// <param name="jwtOptions">The JWT options.</param>
+    /// <param name="dateTime">The current date and time.</param>
     public JwtProvider(
-    IOptions<JwtSettings> jwtOptions,
-    IDateTime dateTime)
+        IOptions<JwtSettings> jwtOptions,
+        IDateTime dateTime)
     {
         _jwtSettings = jwtOptions.Value;
         _dateTime = dateTime;
@@ -31,20 +39,20 @@ public class JwtProvider : IJwtProvider
 
         Claim[] claims =
         {
-            new Claim("userId", user.Id.ToString()),
-            new Claim("email", user.Email),
-            new Claim("name", user.FullName)
-        };
+                new Claim("userId", user.Id.ToString()),
+                new Claim("email", user.Email),
+                new Claim("name", user.FullName)
+            };
 
         DateTime tokenExpirationTime = _dateTime.UtcNow.AddMinutes(_jwtSettings.TokenExpirationInMinutes);
 
         var token = new JwtSecurityToken(
-                _jwtSettings.Issuer,
-                _jwtSettings.Audience,
-                claims,
-                null,
-                tokenExpirationTime,
-                signingCredentials);
+            _jwtSettings.Issuer,
+            _jwtSettings.Audience,
+            claims,
+            null,
+            tokenExpirationTime,
+            signingCredentials);
 
         string tokenValue = new JwtSecurityTokenHandler().WriteToken(token);
 
