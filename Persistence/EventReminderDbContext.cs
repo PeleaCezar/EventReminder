@@ -10,17 +10,24 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage;
 using Persistence.Extensions;
-using System;
-using System.Data.SqlClient;
 using System.Reflection;
 
 namespace Persistence;
 
+/// <summary>
+/// Represents the applications database context.
+/// </summary>
 public sealed class EventReminderDbContext : DbContext, IDbContext, IUnitOfWork
 {
     private readonly IDateTime _dateTime;
     private readonly IMediator _mediator;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="EventReminderDbContext"/> class.
+    /// </summary>
+    /// <param name="options">The database context options.</param>
+    /// <param name="dateTime">The current date and time.</param>
+    /// <param name="mediator">The mediator.</param>
     public EventReminderDbContext(DbContextOptions options, IDateTime dateTime, IMediator mediator)
         : base(options)
     {
