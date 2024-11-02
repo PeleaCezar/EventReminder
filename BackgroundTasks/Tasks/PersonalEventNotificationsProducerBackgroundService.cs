@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 
 namespace BackgroundTasks.Tasks
 {
-    internal class PersonalEventNotificationsProducerBackgroundService : BackgroundService
+    internal sealed class PersonalEventNotificationsProducerBackgroundService : BackgroundService
     {
         private readonly ILogger<PersonalEventNotificationsProducerBackgroundService> _logger;
         private readonly BackgroundTaskSettings _backgroundTaskSettings;

@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 
 namespace Persistence.Specifications;
 
-internal class FriendshipSpecification : Specification<Friendship>
+internal sealed class FriendshipSpecification : Specification<Friendship>
 {
     private readonly Guid _userId;
     private readonly Guid _friendId;
