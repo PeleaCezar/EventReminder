@@ -8,6 +8,9 @@ using Domain.Repositories;
 
 namespace BackgroundTasks.Services;
 
+/// <summary>
+/// Represents the email notifications consumer.
+/// </summary>
 internal sealed class EmailNotificationsConsumer : IEmailNotificationsConsumer
 {
     private readonly INotificationRepository _notificationRepository;

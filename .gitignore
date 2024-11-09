@@ -510,3 +510,6 @@ FodyWeavers.xsd
 /Api/obj/Debug/net7.0/Api.MvcApplicationPartsAssemblyInfo.cs
 /Api/obj/Api.csproj.nuget.g.props
 /Api/obj/Api.csproj.nuget.g.targets
+/Notifications/obj/Debug/net7.0/Notifications.MvcApplicationPartsAssemblyInfo.cs
+/Notifications/obj/Notifications.csproj.nuget.g.props
+/Notifications/obj/Notifications.csproj.nuget.g.targets

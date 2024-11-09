@@ -1,8 +1,7 @@
 ﻿using MediatR;
 
-namespace Application.Core.Abstractions.Messaging
+namespace Application.Core.Abstractions.Messaging;
+
+public interface IIntegrationEvent : INotification
 {
-    public interface IIntegrationEvent : INotification
-    {
-    }
 }

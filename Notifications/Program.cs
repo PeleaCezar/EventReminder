@@ -1,12 +1,15 @@
-using Microsoft.Extensions.Configuration;
+
+using Infrastructure;
+using Persistence;
+using BackgroundTasks;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services
-            .AddHttpContextAccessor();
-            //.AddInfrastructure(builder.Configuration)
-            //.AddPersistence(builder.Configuration)
-            //.AddBackgroundTasks(builder.Configuration);
+            .AddHttpContextAccessor()
+            .AddInfrastructure(builder.Configuration)
+            .AddPersistence(builder.Configuration)
+            .AddBackgroundTasks(builder.Configuration);
 
 builder.Services.AddControllers();
 

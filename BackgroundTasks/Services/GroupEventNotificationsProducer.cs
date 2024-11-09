@@ -18,6 +18,14 @@ internal sealed class GroupEventNotificationsProducer : IGroupEventNotifications
     private readonly IGroupEventRepository _groupEventRepository;
     private readonly INotificationRepository _notificationRepository;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GroupEventNotificationsProducer"/> class.
+    /// </summary>
+    /// <param name="groupEventRepository">The group event repository.</param>
+    /// <param name="attendeeRepository">The attendee repository.</param>
+    /// <param name="notificationRepository">The notification repository.</param>
+    /// <param name="dateTime">The date and time.</param>
+    /// <param name="unitOfWork">The unit of work.</param>
     public GroupEventNotificationsProducer(
         IDateTime dateTime,
         IUnitOfWork unitOfWork,

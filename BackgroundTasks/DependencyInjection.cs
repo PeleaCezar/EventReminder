@@ -26,7 +26,7 @@ namespace BackgroundTasks
             services.AddHostedService<PersonalEventNotificationsProducerBackgroundService>();
 
             services.AddHostedService<EmailNotificationConsumerBackgroundService>();
-           
+
             services.AddHostedService<IntegrationEventConsumerBackgroundService>();
 
             services.AddScoped<IGroupEventNotificationsProducer, GroupEventNotificationsProducer>();

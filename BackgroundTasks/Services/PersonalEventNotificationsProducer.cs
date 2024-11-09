@@ -1,5 +1,8 @@
 ﻿using Application.Core.Abstractions.Common;
 using Application.Core.Abstractions.Data;
+using Domain.Core.Primitives.Result;
+using Domain.Entities;
+using Domain.Enumerations;
 using Domain.Repositories;
 
 namespace BackgroundTasks.Services;
@@ -14,8 +17,57 @@ internal sealed class PersonalEventNotificationsProducer : IPersonalEventNotific
     private readonly IDateTime _dateTime;
     private readonly IUnitOfWork _unitOfWork;
 
-    public Task ProduceAsync(int batchSize, CancellationToken cancellationToken = default)
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PersonalEventNotificationsProducer"/> class.
+    /// </summary>
+    /// <param name="personalEventRepository">The personal event repository.</param>
+    /// <param name="notificationRepository">The notification repository.</param>
+    /// <param name="dateTime">The date and time.</param>
+    /// <param name="unitOfWork">The unit of work.</param>
+    public PersonalEventNotificationsProducer(
+        IPersonalEventRepository personalEventRepository,
+        INotificationRepository notificationRepository,
+        IDateTime dateTime,
+        IUnitOfWork unitOfWork)
     {
-        throw new NotImplementedException();
+        _personalEventRepository = personalEventRepository;
+        _notificationRepository = notificationRepository;
+        _dateTime = dateTime;
+        _unitOfWork = unitOfWork;
+    }
+
+    public async Task ProduceAsync(int batchSize, CancellationToken cancellationToken = default)
+    {
+        IReadOnlyCollection<PersonalEvent> unprocessedPersonalEvents = await _personalEventRepository.GetUnprocessedAsync(batchSize);
+
+        if(!unprocessedPersonalEvents.Any())
+        {
+            return;
+        }
+
+        var notifications = new List<Notification>();
+
+        foreach(PersonalEvent personalEvent in unprocessedPersonalEvents)
+        {
+            Result result = personalEvent.MarkAsProcessed();
+
+            if(result.IsFailure)
+            {
+                continue;
+            }
+
+            List<Notification> notificationsForPersonalEvent = NotificationType
+                .List
+                .Select(notificationType => notificationType.TryCreateNotification(personalEvent, personalEvent.UserId, _dateTime.UtcNow))
+                .Where(maybeNotification => maybeNotification.HasValue)
+                .Select(maybeNotification => maybeNotification.Value)
+                .ToList();
+
+            notifications.AddRange(notificationsForPersonalEvent);
+        }
+
+        _notificationRepository.InsertRange(notifications);
+
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
     }
 }

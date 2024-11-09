@@ -46,6 +46,12 @@ internal sealed class GroupEventNotificationsProducerBackgroundService : Backgro
         await Task.CompletedTask;
     }
 
+
+    /// <summary>
+    /// Produces the next batch of group event notifications.
+    /// </summary>
+    /// <param name="stoppingToken">The stopping token.</param>
+    /// <returns>The completed task.</returns>
     private async Task ProduceGroupEventNotificationsAsync(CancellationToken stoppingToken)
     {
         try
