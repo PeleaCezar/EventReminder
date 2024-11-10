@@ -8,19 +8,30 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.FriendshipRequests.Queries.GetSentFriendshipRequests;
 
+/// <summary>
+/// Represents the <see cref="GetPendingFriendshipRequestsQuery"/> handler.
+/// </summary>
 internal sealed class GetSentFriendshipRequestsQueryHandler
     : IQueryHandler<GetSentFriendshipRequestsQuery, Maybe<SentFriendshipRequestsListResponse>>
 {
     private readonly IUserIdentifierProvider _userIdentifierProvider;
     private readonly IDbContext _dbContext;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GetSentFriendshipRequestsQueryHandler"/> class.
+    /// </summary>
+    /// <param name="userIdentifierProvider">The user identifier provider.</param>
+    /// <param name="dbContext">The database context.</param>
     public GetSentFriendshipRequestsQueryHandler(IUserIdentifierProvider userIdentifierProvider, IDbContext dbContext)
     {
         _userIdentifierProvider = userIdentifierProvider;
         _dbContext = dbContext;
     }
 
-    public async Task<Maybe<SentFriendshipRequestsListResponse>> Handle(GetSentFriendshipRequestsQuery request, CancellationToken cancellationToken)
+    /// <inheritdoc />
+    public async Task<Maybe<SentFriendshipRequestsListResponse>> Handle(
+        GetSentFriendshipRequestsQuery request,
+        CancellationToken cancellationToken)
     {
         if (request.UserId == Guid.Empty || request.UserId != _userIdentifierProvider.UserId)
         {

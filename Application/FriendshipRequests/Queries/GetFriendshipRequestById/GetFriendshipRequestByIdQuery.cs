@@ -2,15 +2,21 @@
 using Contracts.FriendshipRequests;
 using Domain.Core.Primitives.Maybe;
 
-namespace Application.FriendshipRequests.Queries.GetFriendshipRequestById
+namespace Application.FriendshipRequests.Queries.GetFriendshipRequestById;
+
+/// <summary>
+/// Represents the query for getting the friendship request by the identifier.
+/// </summary>
+public sealed class GetFriendshipRequestByIdQuery : IQuery<Maybe<FriendshipRequestResponse>>
 {
     /// <summary>
-    /// Represents the query for getting the friendship request by the identifier.
+    /// Initializes a new instance of the <see cref="GetFriendshipRequestByIdQuery"/> class.
     /// </summary>
-    public sealed class GetFriendshipRequestByIdQuery : IQuery<Maybe<FriendshipRequestResponse>>
-    {
-        public GetFriendshipRequestByIdQuery(Guid friendshipRequestId) => FriendshipRequestId = friendshipRequestId;
+    /// <param name="friendshipRequestId">The friendship request identifier.</param>
+    public GetFriendshipRequestByIdQuery(Guid friendshipRequestId) => FriendshipRequestId = friendshipRequestId;
 
-        public Guid FriendshipRequestId { get; }
-    }
+    /// <summary>
+    /// Gets the friendship request identifier.
+    /// </summary>
+    public Guid FriendshipRequestId { get; }
 }

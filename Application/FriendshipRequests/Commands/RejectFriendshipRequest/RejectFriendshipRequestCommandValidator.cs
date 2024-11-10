@@ -4,6 +4,9 @@ using FluentValidation;
 
 namespace Application.FriendshipRequests.Commands.RejectFriendshipRequest
 {
+    /// <summary>
+    /// Represents the <see cref="RejectFriendshipRequestCommand"/> validator.
+    /// </summary>
     public sealed class RejectFriendshipRequestCommandValidator : AbstractValidator<RejectFriendshipRequestCommand>
     {
         /// <summary>

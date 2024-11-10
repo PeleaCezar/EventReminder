@@ -1,21 +1,20 @@
 ﻿using Application.Core.Abstractions.Messaging;
 
-namespace Application.Attendees.Events.AttendeeCreated
+namespace Application.Attendees.Events.AttendeeCreated;
+
+/// <summary>
+/// Represents the event that is published when an attendee is created.
+/// </summary>
+public sealed class AttendeeCreatedEvent : IEvent
 {
     /// <summary>
-    /// Represents the event that is published when an attendee is created.
+    /// Initializes a new instance of the <see cref="AttendeeCreatedEvent"/> class.
     /// </summary>
-    public sealed class AttendeeCreatedEvent : IEvent
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AttendeeCreatedEvent"/> class.
-        /// </summary>
-        /// <param name="attendeeId">The attendee identifier.</param>
-        public AttendeeCreatedEvent(Guid attendeeId) => AttendeeId = attendeeId;
+    /// <param name="attendeeId">The attendee identifier.</param>
+    public AttendeeCreatedEvent(Guid attendeeId) => AttendeeId = attendeeId;
 
-        /// <summary>
-        /// Gets the attendee identifier.
-        /// </summary>
-        public Guid AttendeeId { get; }
-    }
+    /// <summary>
+    /// Gets the attendee identifier.
+    /// </summary>
+    public Guid AttendeeId { get; }
 }

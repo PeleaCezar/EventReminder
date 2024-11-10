@@ -10,6 +10,9 @@ using Domain.Repositories;
 
 namespace Application.FriendshipRequests.Commands;
 
+/// <summary>
+/// Represents the <see cref="AcceptFriendshipRequestCommand"/> handler.
+/// </summary>
 internal sealed class AcceptFriendshipRequestCommandHandler : ICommandHandler<AcceptFriendshipRequestCommand, Result>
 {
     private readonly IFriendshipRequestRepository _friendshipRequestRepository;
@@ -18,6 +21,15 @@ internal sealed class AcceptFriendshipRequestCommandHandler : ICommandHandler<Ac
     private readonly IUnitOfWork _unitOfWork;
     private readonly IDateTime _dateTime;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="AcceptFriendshipRequestCommandHandler"/> class.
+    /// </summary>
+    /// <param name="userIdentifierProvider">The user identifier provider.</param>
+    /// <param name="friendshipRequestRepository">The friendship request repository.</param>
+    /// <param name="friendshipRepository">The friendship repository.</param>
+    /// <param name="userRepository">The user repository.</param>
+    /// <param name="unitOfWork">The unit of work.</param>
+    /// <param name="dateTime">The date and time.</param>
     public AcceptFriendshipRequestCommandHandler(
         IFriendshipRequestRepository friendshipRequestRepository,
         IUserIdentifierProvider userIdentifierProvider,

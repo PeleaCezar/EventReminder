@@ -11,12 +11,21 @@ using Domain.ValueObjects;
 
 namespace Application.Authentication.Commands.Login
 {
+    /// <summary>
+    /// Represents the <see cref="LoginCommand"/> handler.
+    /// </summary>
     internal sealed class LoginCommandHandler : ICommandHandler<LoginCommand, Result<TokenResponse>>
     {
         private readonly IUserRepository _userRepository;
         private readonly IPasswordHashChecker _passwordHashChecker;
         private readonly IJwtProvider _jwtProvider;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LoginCommandHandler"/> class.
+        /// </summary>
+        /// <param name="userRepository">The user repository.</param>
+        /// <param name="passwordHashChecker">The password hash checker.</param>
+        /// <param name="jwtProvider">The JWT provider.</param>
         public LoginCommandHandler(IUserRepository userRepository, IPasswordHashChecker passwordHashChecker, IJwtProvider jwtProvider)
         {
             _userRepository = userRepository;

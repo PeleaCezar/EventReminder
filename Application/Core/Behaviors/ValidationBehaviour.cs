@@ -2,6 +2,7 @@
 using FluentValidation;
 using FluentValidation.Results;
 using MediatR;
+using ValidationException = Application.Core.Exceptions.ValidationException;
 
 namespace Application.Core.Behaviors;
 

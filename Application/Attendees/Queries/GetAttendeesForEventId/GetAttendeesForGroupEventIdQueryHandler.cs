@@ -8,11 +8,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Attendees.Queries.GetAttendeesForEventId;
 
+/// <summary>
+/// Represents the <see cref="GetAttendeesForGroupEventIdQuery"/> handler.
+/// </summary>
 internal sealed class GetAttendeesForGroupEventIdQueryHandler : IQueryHandler<GetAttendeesForGroupEventIdQuery, Maybe<AttendeeListResponse>>
 {
     private readonly IDbContext _dbContext;
     private readonly IUserIdentifierProvider _userIdentifierProvider;
-    
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="GetAttendeesForGroupEventIdQueryHandler"/> class.
+    /// </summary>
+    /// <param name="dbContext">The database context.</param>
+    /// <param name="userIdentifierProvider">The user identifier provider.</param>
     public GetAttendeesForGroupEventIdQueryHandler(
         IDbContext dbContext,
         IUserIdentifierProvider userIdentifierProvider)
